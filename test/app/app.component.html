@@ -1,0 +1,108 @@
+<h1>Types</h1>
+<div style="display:inline-flex; width:100%">
+  <div style="margin: auto auto; overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <h2>Arch</h2>
+    <ngx-gauge [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+
+  <div style="margin: auto auto; overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <h2>Full</h2>
+    <ngx-gauge [type]="'full'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+
+  <div style="margin: auto auto; overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <h2>Semi</h2>
+    <ngx-gauge [type]="'semi'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+</div>
+
+<hr />
+
+<h1>Size</h1>
+<div style="display:inline-flex; width:100%">
+  <div style="margin: auto auto; overflow:hidden; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <ngx-gauge [labelFontSize]="'0.8em'" [centerFontSize]="'1.2em'" [size]="150" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+
+  <div style="margin: auto auto; overflow:hidden; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+      <ngx-gauge [size]="200" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+    </div>
+
+  <div style="margin: auto auto; overflow:hidden; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <ngx-gauge [labelFontSize]="'1.3em'" [centerFontSize]="'2.5em'" [size]="250" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+</div>
+
+<hr />
+
+<h1>Caps</h1>
+<div style="display:inline-flex; width:100%">
+  <div style="margin: auto auto; overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <h2>Round</h2>
+    <ngx-gauge [cap]="'round'" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+  <div style="margin: auto auto; overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <h2>Butt</h2>
+    <ngx-gauge [cap]="'butt'" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+</div>
+
+<hr />
+
+<h1>Decimals</h1>
+<div style="display:inline-flex; width:100%">
+  <div style="margin: auto auto; overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+      <h2>1 Decimal</h2>
+    <ngx-gauge [decimals]="1" [type]="'arch'" [duration]="500" [value]="value" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+  <div style="margin: auto auto; overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+      <h2>0 Decimal</h2>
+    <ngx-gauge [decimals]="0" [type]="'arch'" [duration]="500" [value]="value" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+</div>
+
+<hr />
+
+<h1>Negative</h1>
+<div style="margin: auto auto; overflow:hidden; width:200px; height:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+  <ngx-gauge [type]="'arch'" [duration]="500" [value]="value - 500" [label]="'Voltage'" [append]="'V'" [min]="-500" [max]="500"></ngx-gauge>
+</div>
+
+<hr />
+
+<h1>Reverse</h1>
+<div style="margin: auto auto; overflow:hidden; width:200px; height:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+  <ngx-gauge [reverse]="true" [type]="'arch'" [duration]="500" [value]="value * (-1)" [label]="'Voltage'" [append]="'V'" [min]="-1000" [max]="0"></ngx-gauge>
+</div>
+
+<hr />
+
+<h1>CAP</h1>
+<div style="margin: auto auto;overflow:hidden; width:200px; height:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+  <ngx-gauge [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="400" [max]="600"></ngx-gauge>
+</div>
+
+<hr />
+
+<h1>Color</h1>
+<div style="display:inline-flex; width:100%">
+
+  <div style="margin: auto auto;overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <h2>Fixed</h2>
+    <ngx-gauge [foregroundColor]="'blue'" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+
+  <hr />
+
+  <div style="margin: auto auto;overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <h2>Gradient</h2>
+    <ngx-gauge [foregroundColor]="MultiColor" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+
+  <hr />
+
+  <div style="margin: auto auto;overflow:hidden; width:200px; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <h2>Steps</h2>
+    <ngx-gauge [foregroundColor]="MultiColorSteps" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+</div>

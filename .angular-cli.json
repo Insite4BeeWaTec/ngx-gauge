@@ -5,8 +5,8 @@
   },
   "apps": [
     {
-      "root": "demo",
-      "outDir": "dist/demo",
+      "root": "test",
+      "outDir": "dist/test",
       "assets": [
         "assets",
         "favicon.ico"
@@ -55,6 +55,9 @@
   },
   "defaults": {
     "styleExt": "css",
-    "component": {}
-  }
+    "component": {},
+    "serve": {
+        "port": 3580
+    }
+}
 }

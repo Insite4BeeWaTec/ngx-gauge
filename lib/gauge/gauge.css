@@ -17,7 +17,6 @@
 .reading-label {
     font-family: inherit;
     width: 100%;
-    display: inline-block;
     position: absolute;
     text-align: center;
     white-space: nowrap;
@@ -28,7 +27,7 @@
 
 .reading-affix {
     text-decoration: none;
-    font-size: 0.6em;
+    font-size: 0.8em;
     opacity: 0.8;
     font-weight: 200;
     padding: 0 0.18em;

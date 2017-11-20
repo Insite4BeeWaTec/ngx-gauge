@@ -1,5 +1,9 @@
-<div class="reading-block" #reading [style.fontSize]="size * 0.22 + 'px'" [style.lineHeight]="size + 'px'">
+<div class="reading-block" #reading [style.fontSize]="centerFontSize" [style.lineHeight]="(size / 10 * 9) + 'px'">
     <u class="reading-affix">{{prepend}}</u>{{value | number}}<u class="reading-affix">{{append}}</u>
 </div>
-<div class="reading-label" [style.fontSize]="size / 13 + 'px'" [style.lineHeight]="(5 * size / 13) + size + 'px'">{{label}}</div>
+<div class="reading-label" [style.fontSize]="labelFontSize" [style.lineHeight]="(size / 10 * 13) + 'px'">{{label}}</div>
+<div style="min-width:100%">
+  <div class="reading-label" style="width:50%;" [style.text-align]="minTextAlign()" [style.fontSize]="labelFontSize" [style.lineHeight]="minMaxLineHeight()">{{min}}</div>
+  <div class="reading-label" style="margin-left:50%; width:50%;" [style.text-align]="maxTextAlign()" [style.fontSize]="labelFontSize" [style.lineHeight]="minMaxLineHeight()">{{max}}</div>
+</div>
 <canvas #canvas [width]="size" [height]="size"></canvas>
