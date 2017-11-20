@@ -1,16 +1,16 @@
 {
     "name": "ngx-gauge",
-    "version": "0.0.1",
-    "description": "A highly customizable Gauge Component for Angular 4+ apps and dashboards",
+    "version": "1.0.0",
+    "description": "Fork of ngx-gauge (by Ashish Chopra). HTML5 based Gauge-Component with nice features and good performance.",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ashish-chopra/ngx-gauge.git"
     },
     "peerDependencies": {
-        "@angular/core": "^4.3.6",
-        "@angular/common": "^4.3.6"
+        "@angular/core": "^5.0.0",
+        "@angular/common": "^5.0.0"
     },
-    "keywords": [  
+    "keywords": [
         "angular",
         "gauge",
         "dashboard",
@@ -21,13 +21,13 @@
         "ngx-gauge"
     ],
     "author": {
-        "name": "Ashish Chopra",
-        "email": "sendtoashishchopra@gmail.com",
-        "url": "https://ashish-chopra.github.io"
+        "name": "Andreas Ehrhardt",
+        "email": "a.ehrhardt@beewatec.de",
+        "url": "https://github.com/Insite4BeeWaTec/ngx-gauge"
     },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/ashish-chopra/ngx-gauge/issues"
+        "url": "https://github.com/Insite4BeeWaTec/ngx-gauge/issues"
     },
-    "homepage": "https://github.com/ashish-chopra/ngx-gauge#readme"
+    "homepage": "https://github.com/Insite4BeeWaTec/ngx-gauge#readme"
 }
