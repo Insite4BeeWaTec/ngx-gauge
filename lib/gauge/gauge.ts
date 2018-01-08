@@ -199,7 +199,11 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
     private _drawShell(start: number, middle: number, end: number, color: string) {
         let center = this._getCenter(), radius = this._getRadius();
 
+        if(radius < 0) return;
+
         this._clear();
+
+        if(this._context.lineWidth !== this.thick) this._context.lineWidth = this.thick;
 
         this._context.beginPath();
         this._context.strokeStyle = this.backgroundColor;

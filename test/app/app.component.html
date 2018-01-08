@@ -20,6 +20,10 @@
 
 <h1>Size</h1>
 <div style="display:inline-flex; width:100%">
+  <div #sizeScale style="margin: auto auto; width:150px; overflow:hidden; cursor:pointer;" (click)="switchPowerSupplyChartType()">
+    <ngx-gauge [labelFontSize]="'0.8em'" [centerFontSize]="'1.2em'" [size]="Math.min(150,sizeScale.offsetWidth)" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
+  </div>
+
   <div style="margin: auto auto; overflow:hidden; cursor:pointer;" (click)="switchPowerSupplyChartType()">
     <ngx-gauge [labelFontSize]="'0.8em'" [centerFontSize]="'1.2em'" [size]="150" [type]="'arch'" [duration]="500" [value]="value" [label]="'Voltage'" [append]="'V'" [min]="0" [max]="1000"></ngx-gauge>
   </div>
