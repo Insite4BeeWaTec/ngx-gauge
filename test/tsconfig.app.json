@@ -3,11 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app",
     "baseUrl": "",
-    "module": "es2015",
-    "types": [],
-    "paths": {
-      "ngx-gauge": ["../dist/lib"]
-    }
+    "module": "es2015"
   },
   "exclude": [
     "test.ts",

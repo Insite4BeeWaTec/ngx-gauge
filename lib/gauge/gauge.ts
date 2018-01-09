@@ -1,18 +1,19 @@
-import {Component,Input,SimpleChanges,ViewEncapsulation,Renderer,AfterViewInit,ElementRef,OnChanges,OnDestroy,ViewChild} from '@angular/core';
-import { NgxGaugeError } from './gauge-error';
-import { clamp,coerceBooleanProperty,coerceNumberProperty,cssUnit,isNumber} from '../common/util';
+import { Component, Input, SimpleChanges, ViewEncapsulation, Renderer, AfterViewInit, ElementRef, OnChanges, OnDestroy, ViewChild } from '@angular/core';
+import { clamp, coerceBooleanProperty, coerceNumberProperty, cssUnit, isNumber } from '../common/util';
 
-const DEFAULTS = {
-    MIN: 0,
-    MAX: 100,
-    TYPE: 'arch',
-    THICK: 25,
-    DECIMALS: 2,
-    FOREGROUND_COLOR: 'rgba(0, 150, 136, 1)',
-    BACKGROUND_COLOR: 'rgba(0, 0, 0, 0.1)',
-    CAP: 'butt',
-    SIZE: 200
-};
+export function DEFAULTS(){
+  return {
+      MIN: 0,
+      MAX: 100,
+      TYPE: 'arch',
+      THICK: 25,
+      DECIMALS: 2,
+      FOREGROUND_COLOR: 'rgba(0, 150, 136, 1)',
+      BACKGROUND_COLOR: 'rgba(0, 0, 0, 0.1)',
+      CAP: 'butt',
+      SIZE: 200
+  };
+}
 
 export type NgxGaugeType = 'full' | 'arch' | 'semi';
 export type NgxGaugeCap = 'round' | 'butt';
@@ -34,15 +35,15 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
 
     @ViewChild('canvas') _canvas: ElementRef;
 
-    private _size: number = DEFAULTS.SIZE;
-    private _min: number = DEFAULTS.MIN;
-    private _max: number = DEFAULTS.MAX;
-    private _decimals: number = DEFAULTS.MAX;
+    private _size: number = DEFAULTS().SIZE;
+    private _min: number = DEFAULTS().MIN;
+    private _max: number = DEFAULTS().MAX;
+    private _decimals: number = DEFAULTS().MAX;
     private _value: number = 0;
     private _initialized: boolean = false;
     private _context: CanvasRenderingContext2D;
     private _lastValue: number = NaN;
-    private _foregroundColor: any = DEFAULTS.FOREGROUND_COLOR;
+    private _foregroundColor: any = DEFAULTS().FOREGROUND_COLOR;
     private _reverse: boolean = false;
 
     @Input()
@@ -51,15 +52,15 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
 
     @Input()
     get min(): number { return parseFloat(this._min.toFixed(this.decimals)); }
-    set min(value: number) { this._min = coerceNumberProperty(value, DEFAULTS.MIN); }
+    set min(value: number) { this._min = coerceNumberProperty(value, DEFAULTS().MIN); }
 
     @Input()
     get max(): number { return parseFloat(this._max.toFixed(this.decimals)); }
-    set max(value: number) { this._max = coerceNumberProperty(value, DEFAULTS.MAX); }
+    set max(value: number) { this._max = coerceNumberProperty(value, DEFAULTS().MAX); }
 
     @Input()
     get decimals(): number { return this._decimals; }
-    set decimals(value: number) { this._decimals = coerceNumberProperty(value, DEFAULTS.DECIMALS); }
+    set decimals(value: number) { this._decimals = coerceNumberProperty(value, DEFAULTS().DECIMALS); }
 
     @Input()
     get reverse(): boolean { return this._reverse; }
@@ -69,7 +70,7 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
     get value() { return parseFloat(this._value.toFixed(this.decimals)); }
     set value(val: number) {
       this._lastValue = this.value;
-      this._value = coerceNumberProperty(val, DEFAULTS.MIN);
+      this._value = coerceNumberProperty(val, DEFAULTS().MIN);
     }
 
     @Input()
@@ -108,21 +109,19 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
         this._foregroundColor = newForegroundColor;
         return;
       }
-      this._value = coerceNumberProperty(val, DEFAULTS.MIN);
+      this._value = coerceNumberProperty(val, DEFAULTS().MIN);
     }
 
-    @Input() type: NgxGaugeType = DEFAULTS.TYPE as NgxGaugeType;
-    @Input() cap: NgxGaugeCap = DEFAULTS.CAP as NgxGaugeCap;
-    @Input() thick: number = DEFAULTS.THICK;
+    @Input() type: NgxGaugeType = DEFAULTS().TYPE as NgxGaugeType;
+    @Input() cap: NgxGaugeCap = DEFAULTS().CAP as NgxGaugeCap;
+    @Input() thick: number = DEFAULTS().THICK;
     @Input() label: string;
     @Input() append: string;
     @Input() prepend: string;
-    @Input() backgroundColor: string = DEFAULTS.BACKGROUND_COLOR;
+    @Input() backgroundColor: string = DEFAULTS().BACKGROUND_COLOR;
     @Input() duration: number = 1200;
     @Input() centerFontSize: string = "32px";
     @Input() labelFontSize: string = "20px";
-
-    constructor(private _elementRef: ElementRef, private _renderer: Renderer) { }
 
     ngOnChanges(changes: SimpleChanges) {
         const isTextChanged = changes['label'] || changes['append'] || changes['prepend'];
@@ -136,11 +135,6 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
                 this._init();
             }
         }
-    }
-
-    private _updateSize() {
-        this._renderer.setElementStyle(this._elementRef.nativeElement, 'width', cssUnit(this._size));
-        this._renderer.setElementStyle(this._elementRef.nativeElement, 'height', cssUnit(this._size));
     }
 
     ngAfterViewInit() {
@@ -242,7 +236,6 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
     private _init() {
         this._context = (this._canvas.nativeElement as HTMLCanvasElement).getContext('2d');
         this._initialized = true;
-        this._updateSize();
         this._setupStyles();
         this._create();
     }
@@ -263,7 +256,7 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
       if(typeof this.foregroundColor === 'string') return this.foregroundColor;
       else if(typeof this.foregroundColor === 'object' && this.foregroundColor.length !== undefined){
 
-        if(this.foregroundColor.length === 0) return DEFAULTS.FOREGROUND_COLOR;
+        if(this.foregroundColor.length === 0) return DEFAULTS().FOREGROUND_COLOR;
         if(this.foregroundColor.length === 1) return this.foregroundColor[0].color;
 
         if(this.foregroundColor[0].value > value) return this.foregroundColor[0].color;
@@ -299,7 +292,7 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
           }
         }
       }
-      else return DEFAULTS.FOREGROUND_COLOR;
+      else return DEFAULTS().FOREGROUND_COLOR;
     }
 
     private _create() {

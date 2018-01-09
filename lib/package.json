@@ -1,14 +1,14 @@
 {
     "name": "ngx-gauge",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Fork of ngx-gauge (by Ashish Chopra). HTML5 based Gauge-Component with nice features and good performance.",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/ashish-chopra/ngx-gauge.git"
+        "url": "git+https://github.com/Insite4BeeWaTec/ngx-gauge.git"
     },
     "peerDependencies": {
-        "@angular/core": "^5.0.0",
-        "@angular/common": "^5.0.0"
+        "@angular/core": "^5.1.0",
+        "@angular/common": "^5.1.0"
     },
     "keywords": [
         "angular",
