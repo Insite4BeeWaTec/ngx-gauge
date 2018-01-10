@@ -194,6 +194,7 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
         let center = this._getCenter(), radius = this._getRadius();
 
         if(radius < 0) return;
+        if(!this._context) return;
 
         this._clear();
 
@@ -211,7 +212,7 @@ export class NgxGauge implements AfterViewInit, OnChanges, OnDestroy {
     }
 
     private _clear() {
-        this._context.clearRect(0, 0, this._getWidth(), this._getHeight());
+        if(this._context) this._context.clearRect(0, 0, this._getWidth(), this._getHeight());
     }
 
     private _getWidth() {
